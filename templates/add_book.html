@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add_author">Add Author</a>
+        <a href="/add_book">Add Book</a>
+    </nav>
+    <div class="container">
+        <h1>Add Book</h1>
+        {% if message %}
+            <div class="message {% if 'Fehler' in message %}error{% else %}success{% endif %}">
+                {{ message }}
+            </div>
+        {% endif %}
+        <form action="/add_book" method="post">
+            <label for="isbn">ISBN:</label>
+            <input type="text" id="isbn" name="isbn" required>
+            
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+            
+            <label for="publication_year">Publication Year:</label>
+            <input type="number" id="publication_year" name="publication_year">
+            
+            <label for="author_id">Author:</label>
+            <select id="author_id" name="author_id" required>
+                {% for author in authors %}
+                    <option value="{{ author.id }}">{{ author.name }}</option>
+                {% endfor %}
+            </select>
+            
+            <input type="submit" value="Add Book">
+        </form>
+
+        <p class="zurueck-link"><a href="/">Back to Homepage</a></p>
+    </div>
+</body>
+</html>

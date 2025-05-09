@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv/
+
+# SQLite DB and data
+*.sqlite
+*.sqlite3
+*.db
+/data/
+
+# Flask & dotenv
+instance/
+*.env
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Byte-compiled / cache
+*.log
+
+# VSCode or other editor configs (optional)
+.vscode/
+.idea/

@@ -1,0 +1,377 @@
+/* Global Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8; /* Light bluish-gray */
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: #2c3e50; /* Dark blue */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+a {
+    color: #3498db; /* Medium blue */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #217dbb; /* Darker blue */
+}
+
+nav {
+    background-color: #34495e; /* Dark grayish-blue */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+nav a {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #2c3e50; /* Darker grayish-blue */
+    color: #fff;
+}
+
+.container {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.message {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.error {
+    background-color: #ffeded;
+    color: #e74c3c; /* Red */
+    border: 1px solid #e74c3c;
+}
+
+.success {
+    background-color: #f0fdf4;
+    color: #2ecc71; /* Green */
+    border: 1px solid #2ecc71;
+}
+
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin: 15px 0 10px;
+    color: #555;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus {
+    outline: none;
+    border-color: #3498db; /* Focus blue */
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+input[type="submit"] {
+    background-color: #3498db; /* Medium blue */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #217dbb; /* Darker blue */
+    transform: translateY(-2px);
+}
+
+input[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+}
+
+.zurueck-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #3498db;
+}
+
+.zurueck-link:hover {
+    text-decoration: underline;
+    color: #217dbb;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.book-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures even spacing between elements */
+    align-items: center; /* Centers elements horizontally */
+    text-align: center;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.book-card img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.book-info {
+    margin-bottom: 15px;
+}
+
+
+.book-info h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.book-info p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.delete-button {
+    background-color: #e74c3c; /* Red */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.delete-button:hover {
+    background-color: #c0392b; /* Darker red */
+    transform: translateY(-2px);
+}
+
+.delete-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.3);
+}
+
+.search-sort {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Aligns items to the start of the container */
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.search-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 20px; /* Adds spacing to the right of the search group */
+    flex: 1; /* Allows the search group to grow and take up available space */
+    min-width: 250px;
+    max-width: 400px; /* Limits the maximum width of the search group */
+}
+
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    /* flex: 1;  Remove flex from here */
+    /* min-width: 250px; */
+    width: 100%;
+    display: flex; /* Enables flexbox for the form */
+    align-items: center; /* Vertically centers the form elements */
+}
+
+.search-form input[type="text"] {
+    flex: 1;
+    border-radius: 6px;
+    width: 100%; /* Ensures the input takes full width of the form */
+}
+
+.search-form button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+    background-color: #217dbb;
+}
+
+.sort-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* margin-left: 20px;  Remove left margin */
+    flex: 1;
+    min-width: 250px;
+    max-width: 400px; /* Limits the maximum width of the sort group */
+}
+
+.sort-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    /* min-width: 300px; */
+    width: 100%;
+    display: flex; /* Enables flexbox for the form */
+    align-items: center; /* Vertically centers the form elements */
+}
+
+.sort-form label {
+    font-size: 16px;
+    color: #555;
+    white-space: nowrap;
+}
+
+.sort-form select {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    flex: 1;
+    min-width: 150px;
+}
+
+.sort-form select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.no-books {
+    text-align: center;
+    font-size: 18px;
+    color: #7f8c8d;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    border: 1px solid #bdc3c7;
+}
+
+.add-author-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-author-form label {
+    display: block;
+    margin: 15px 0 10px;
+    color: #555;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.add-author-form input[type="text"],
+.add-author-form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.add-author-form input[type="text"]:focus,
+.add-author-form input[type="date"]:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.add-author-form input[type="submit"] {
+    background-color: #3498db; /* Medium blue */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-author-form input[type="submit"]:hover {
+    background-color: #217dbb; /* Darker blue */
+    transform: translateY(-2px);
+}
+
+.add-author-form input[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+}
+

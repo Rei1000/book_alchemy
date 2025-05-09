@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add_author">Add Author</a>
+        <a href="/add_book">Add Book</a>
+    </nav>
+    <div class="container">
+        <h1>Library Management</h1>
+        {% if message %}
+            <div class="message {% if 'Fehler' in message %}error{% else %}success{% endif %}">
+                {{ message }}
+            </div>
+        {% endif %}
+        <div class="search-sort">
+            <div class="search-group">
+                <label for="search">Search</label>
+                <form action="/" method="GET" class="search-form">
+                    <input type="text" name="search" id="search" placeholder="Search by title or ISBN" value="{{ search_query }}">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <div class="sort-group">
+                <label>Sort by</label>
+                <div class="sort-form">
+                    <form id="sort-form" action="/" method="GET">
+                        <input type="hidden" name="search" value="{{ search_query }}">
+                        <select id="sort" name="sort" onchange="this.form.submit()">
+                            <option value="title" {% if sort_by == 'title' %}selected{% endif %}>Title</option>
+                            <option value="author" {% if sort_by == 'author' %}selected{% endif %}>Author</option>
+                        </select>
+                        <select name="direction" onchange="this.form.submit()">
+                            <option value="asc" {% if direction == 'asc' %}selected{% endif %}>Ascending</option>
+                            <option value="desc" {% if direction == 'desc' %}selected{% endif %}>Descending</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="book-grid">
+            {% for item in books %}
+                <div class="book-card">
+                    <a href="{{ item.cover_link }}" target="_blank" title="{{ item.cover_tooltip }}">
+                        {% if item.isbn_valid %}
+                            <img src="{{ item.cover_url }}" alt="Book cover of {{ item.book.title }}">
+                        {% else %}
+                            <img src="{{ url_for('static', filename='no_cover.jpeg') }}" alt="No cover available">
+                        {% endif %}
+                    </a>
+                    <div class="book-info">
+                        <h3>{{ item.book.title }}</h3>
+                        <p>Author: {{ item.book.author.name }}</p>
+                        <p>ISBN: {{ item.book.isbn }}</p>
+                        <p>Year: {{ item.book.publication_year }}</p>
+                        <form action="/book/{{ item.book.id }}/delete" method="POST">
+                            <input type="submit" value="Delete" class="delete-button">
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% if not books and not search_query%}
+            <div class="no-books">
+                <p>There are no books in the database yet.</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

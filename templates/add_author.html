@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Author</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add_author">Add Author</a>
+        <a href="/add_book">Add Book</a>
+    </nav>
+    <div class="container">
+        <h1>Add Author</h1>
+
+        {% if message %}
+        <div class="message {% if '❌' in message %}error{% else %}success{% endif %}">
+            {{ message }}
+        </div>
+        {% endif %}
+
+        <form action="/add_author" method="POST">
+            <label for="name">Name of the Author:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="birthdate">Date of Birth (optional):</label>
+            <input type="date" id="birthdate" name="birthdate">
+            
+            <label for="date_of_death">Date of Death (optional):</label>
+            <input type="date" id="date_of_death" name="date_of_death">
+            
+            <input type="submit" value="Add Author">
+        </form>
+
+        <p class="zurueck-link"><a href="/">Back to Homepage</a></p>
+    </div>
+</body>
+</html>
