@@ -218,9 +218,9 @@ input[type="submit"]:focus {
     display: flex;
     justify-content: space-between;
     align-items: flex-start; /* Aligns items to the start of the container */
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 2rem;
 }
 
 .search-group {
@@ -228,9 +228,8 @@ input[type="submit"]:focus {
     flex-direction: column;
     align-items: flex-start;
     margin-right: 20px; /* Adds spacing to the right of the search group */
-    flex: 1; /* Allows the search group to grow and take up available space */
-    min-width: 250px;
-    max-width: 400px; /* Limits the maximum width of the search group */
+    flex: 1 1 45%; /* Allows the search group to grow and take up available space */
+    max-width: 45%; /* Limits the maximum width of the search group */
 }
 
 
@@ -268,11 +267,8 @@ input[type="submit"]:focus {
 .sort-group {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    /* margin-left: 20px;  Remove left margin */
-    flex: 1;
-    min-width: 250px;
-    max-width: 400px; /* Limits the maximum width of the sort group */
+    align-items: flex-end;
+/* Limits the maximum width of the sort group */
 }
 
 .sort-form {
